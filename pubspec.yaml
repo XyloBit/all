@@ -18,14 +18,71 @@ dependencies:
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
   get: ^4.6.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.1
   flutter_inappwebview: ^6.0.0
   url_launcher: ^6.3.0
   shared_preferences: ^2.3.2
+  flutter_downloader: ^1.11.8
+
+
+  #  share files
+
+  firebase_core: ^2.24.2
+  firebase_storage: ^11.6.0
+  file_picker: ^8.1.2
+
+#  # Windows support
+  path_provider: ^2.1.4
+
+#  # Web support
+  firebase_core_web: ^2.10.0
+  firebase_storage_web: ^3.6.17
+  permission_handler: ^11.3.1
+  device_info_plus: ^10.1.2
+  local_auth: ^2.3.0
+  video_thumbnail: ^0.5.3
+#  firebase_auth: ^4.16.0
+#  cloud_firestore: ^4.14.0
+
+
+#  file_picker_web: ^5.0.0
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+
+#CMD: dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#009980"
+  #background_image: "assets/background.png"
+  image: assets/img/logo.png
+
+  # Android 12 handles the splash screen differently than previous versions.  Please visit
+  # https://developer.android.com/guide/topics/ui/splash-screen
+  # Following are Android 12 specific parameter.
+  android_12:
+    image: assets/img/logo.png
+    color: "#009980"
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given
+  # platform.
+  android: true
+  ios: true
+  #web: false
+  fullscreen: true
+
+
+#CMD : flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  remove_alpha_ios: true
+  image_path: "assets/img/logo.png"
+  min_sdk_android: 21
 
   flutter_lints: ^3.0.0
 
@@ -38,6 +95,9 @@ flutter:
   assets:
      - assets/img/
      - assets/img/addImg.png
+     - assets/img/video.png
+     - assets/img/logo.png
+     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

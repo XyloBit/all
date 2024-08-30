@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../file_upload/upload_home/upload_files.dart';
 import 'img.dart';
 import 'launch_screen.dart';
 
@@ -58,7 +59,38 @@ class _DrawerWState extends State<DrawerW> {
                           // DrawerItem( link: 'https://free-for.dev/#/', name: 'Free for Developers', img: AppImage.whatsapp, isClose: isClose,),
                           DrawerItem( link: 'https://pixabay.com/images/search/', name: 'Free for Developers', img: AppImage.whatsapp, isClose: isClose,),
 
-                          // DrawerItem( link: 'https://sparknet.wuaze.com', name: 'Add', img: AppImage.addImg, isClose: isClose,),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12, right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const SizedBox(height: 8,),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        Get.back();
+                                        Get.to(()=> FileUploadScreen());
+                                      },
+                                      child:  Container(
+                                        width: 30,
+                                        height: 30,
+                                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/img/logo.png'))),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    if(isClose == false)
+                                      Text('Upload Files'),
+                                  ],
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Divider(),
+                                ),
+                              ],
+                            ),
+                          )
 
                         ],
                       ),

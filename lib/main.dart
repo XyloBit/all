@@ -1,4 +1,7 @@
+import 'package:allsocialmedia/test.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,8 +9,16 @@ import 'package:url_launcher/url_launcher.dart';
 import 'app_bar/app_bar.dart';
 import 'app_bar/drawer.dart';
 import 'app_bar/launch_screen.dart';
+import 'file_upload/upload_home/upload_files.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+
+  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
+
+
   runApp(const MyApp());
 }
 
@@ -16,9 +27,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: FileUploadScreen(),
+      // home: FingerPrintAuth(),
     );
   }
 }
